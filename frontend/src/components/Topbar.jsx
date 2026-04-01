@@ -5,7 +5,7 @@ const Topbar = () => {
   return (
     <div className="topbar">
       <div style={{display:'flex', alignItems:'center', gap: '24px'}}>
-        <span className="topbar-status-text">System Status: Optimal</span>
+        {/* Topbar status removed per user request */}
       </div>
     </div>
   );

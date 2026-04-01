@@ -72,13 +72,6 @@ function App() {
           <Sidebar mobileOpen={mobileMenuOpen} closeMenu={() => setMobileMenuOpen(false)} />
           <div className="main-content">
             <div className="topbar">
-              <button 
-                className="mobile-menu-btn" 
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', marginRight: '16px' }}
-              >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
               <Topbar />
             </div>
             <div className="page-wrapper-scroll">

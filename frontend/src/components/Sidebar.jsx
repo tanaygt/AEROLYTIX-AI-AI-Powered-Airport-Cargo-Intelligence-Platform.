@@ -1,75 +1,80 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain, X } from 'lucide-react';
+import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useDemo } from '../context/DemoContext';
 
 const Sidebar = ({ mobileOpen, closeMenu }) => {
   const { demoMode, setDemoMode } = useDemo();
+  const [isCollapsed, setIsCollapsed] = React.useState(false);
 
   return (
-    <div className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
+    <div className={`sidebar ${mobileOpen ? 'mobile-open' : ''} ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
-        <div className="sidebar-logo">
-          <span className="text-gradient">AEROLYTIX</span> AI
-        </div>
-        <button className="mobile-close-btn" onClick={closeMenu}>
-          <X size={24} />
+        {!isCollapsed && (
+          <div className="sidebar-logo">
+            <span className="text-gradient">AEROLYTIX</span> AI
+          </div>
+        )}
+        <button className="collapse-btn" onClick={() => setIsCollapsed(!isCollapsed)}>
+          {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
         </button>
       </div>
 
       <div className="sidebar-intelligence">
         <div className="intelligence-group">
-          <div className="status-indicator-pill">
+          <div className="status-indicator-pill" title="AI Energy Monitor">
             <div className="status-dot-green"></div>
-            AI Energy Monitor
+            {!isCollapsed && "AI Energy Monitor"}
           </div>
-          <div className="status-indicator-pill">
+          <div className="status-indicator-pill" title="Forecast Engine">
             <div className="status-dot-green"></div>
-            Forecast Engine
+            {!isCollapsed && "Forecast Engine"}
           </div>
-          <div className="status-indicator-pill">
+          <div className="status-indicator-pill" title="Risk Analyst">
             <div className="status-dot-green"></div>
-            Risk Analyst
+            {!isCollapsed && "Risk Analyst"}
           </div>
         </div>
         
         <div 
           className="demo-mode-toggle-sidebar"
           onClick={() => setDemoMode(!demoMode)}
+          title="Judge Demo Mode"
         >
           <div className="status-dot-blue" style={{
              animation: demoMode ? 'pulseFast 1s infinite' : 'none'
           }}></div>
-          <span>JUDGE DEMO MODE</span>
+          {!isCollapsed && <span>JUDGE DEMO MODE</span>}
           <div className={`toggle-switch ${demoMode ? 'active' : ''}`}></div>
         </div>
       </div>
 
       <div className="sidebar-nav">
-        <NavLink to="/dashboard" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
+        <NavLink to="/dashboard" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"} title="Dashboard">
           <LayoutDashboard size={20} />
-          Dashboard
+          {!isCollapsed && "Dashboard"}
         </NavLink>
-        <NavLink to="/sustainability" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
+        <NavLink to="/sustainability" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"} title="Sustainability Engine">
           <Zap size={20} />
-          Sustainability Engine
+          {!isCollapsed && "Sustainability Engine"}
         </NavLink>
-        <NavLink to="/demand" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
+        <NavLink to="/demand" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"} title="Demand Forecasting">
           <TrendingUp size={20} />
-          Demand Forecasting
+          {!isCollapsed && "Demand Forecasting"}
         </NavLink>
-        <NavLink to="/security" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
+        <NavLink to="/security" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"} title="Cargo Security">
           <ShieldAlert size={20} />
-          Cargo Security (PLACI)
+          {!isCollapsed && "Cargo Security (PLACI)"}
         </NavLink>
         
         <div style={{marginTop: 'auto', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.05)'}}>
-          <NavLink to="/insights" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
+          <NavLink to="/insights" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"} title="AI Insights">
             <Brain size={20} />
-            AI Insights
+            {!isCollapsed && "AI Insights"}
           </NavLink>
-          <NavLink to="/settings" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
+          <NavLink to="/settings" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"} title="System Settings">
             <Settings size={20} />
-            System Settings
+            {!isCollapsed && "System Settings"}
           </NavLink>
         </div>
       </div>
