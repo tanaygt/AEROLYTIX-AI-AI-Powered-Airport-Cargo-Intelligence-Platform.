@@ -540,32 +540,59 @@ body {
   position: fixed;
   bottom: 40px;
   right: 40px;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 50;
+  z-index: 150; /* Above sidebar */
   background: rgba(11, 15, 26, 0.9);
-  border: 1px solid var(--color-primary);
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+  border: 1.5px solid var(--color-primary);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .copilot-panel {
   position: fixed;
-  bottom: 110px;
+  bottom: 120px;
   right: 40px;
-  width: 380px;
-  height: 500px;
-  z-index: 50;
+  width: 400px;
+  height: 600px;
+  max-height: calc(100vh - 160px);
+  z-index: 150;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: rgba(11, 15, 26, 0.95);
-  border: 1px solid var(--color-primary);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0, 243, 255, 0.1);
+  background: rgba(11, 15, 26, 0.98);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  box-shadow: 0 10px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 243, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+}
+
+@media (max-width: 768px) {
+  .copilot-button {
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .copilot-panel {
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    z-index: 1000; /* Level over EVERYTHING */
+  }
+  
+  .copilot-header {
+    padding: 24px 20px;
+  }
 }
 
 .copilot-header {
