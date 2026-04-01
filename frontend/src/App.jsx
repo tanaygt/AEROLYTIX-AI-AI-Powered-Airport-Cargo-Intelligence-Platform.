@@ -10,6 +10,7 @@ import Insights from './pages/Insights';
 import Settings from './pages/Settings';
 import { DemoProvider } from './context/DemoContext';
 import AICopilot from './components/AICopilot';
+import { Menu, X } from 'lucide-react';
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // Suppress console warnings for clean production UI
     console.error("System module exception:", error);
   }
 
@@ -60,28 +60,40 @@ class ErrorBoundary extends Component {
 }
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
   return (
     <DemoProvider>
       <BrowserRouter>
         <div className="particles-bg">
-          {/* Pure CSS particles created dynamically via mapping */}
           {[...Array(20)].map((_, i) => <div key={i} className={`particle particle-${i}`}></div>)}
         </div>
         <div className="app-container">
-          <Sidebar />
+          <Sidebar mobileOpen={mobileMenuOpen} closeMenu={() => setMobileMenuOpen(false)} />
           <div className="main-content">
-            <Topbar />
-            <ErrorBoundary>
-              <Routes>
-                <Route path="/" element={<Navigate to="/dashboard" replace />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/sustainability" element={<Sustainability />} />
-                <Route path="/demand" element={<Demand />} />
-                <Route path="/security" element={<Security />} />
-                <Route path="/insights" element={<Insights />} />
-                <Route path="/settings" element={<Settings />} />
-              </Routes>
-            </ErrorBoundary>
+            <div className="topbar">
+              <button 
+                className="mobile-menu-btn" 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', marginRight: '16px' }}
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+              <Topbar />
+            </div>
+            <div className="page-wrapper-scroll">
+              <ErrorBoundary>
+                <Routes>
+                  <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/sustainability" element={<Sustainability />} />
+                  <Route path="/demand" element={<Demand />} />
+                  <Route path="/security" element={<Security />} />
+                  <Route path="/insights" element={<Insights />} />
+                  <Route path="*" element={<Navigate to="/dashboard" replace />} />
+                </Routes>
+              </ErrorBoundary>
+            </div>
           </div>
           <AICopilot />
         </div>
