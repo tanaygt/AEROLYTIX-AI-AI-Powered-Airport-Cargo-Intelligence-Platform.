@@ -91,12 +91,11 @@ const Demand = () => {
             </motion.div>
           </div>
 
-          <div className="dashboard-grid">
+          <div className="responsive-dashboard-grid">
             <motion.div 
                initial={{y: 20, opacity: 0}}
                animate={{y: 0, opacity: 1}}
-               className="glass-panel chart-container" 
-               style={{gridColumn: '1 / -1'}}
+               className="glass-panel chart-container full-width" 
             >
               <div className="panel-title">Cargo Volume Forecast (Tons)</div>
               <div style={{ height: '350px', width: '100%' }}>
@@ -117,7 +116,7 @@ const Demand = () => {
                initial={{y: 20, opacity: 0}}
                animate={{y: 0, opacity: 1}}
                transition={{delay: 0.1}}
-               className="glass-panel chart-container full-width"
+               className="glass-panel chart-container"
             >
               <div className="panel-title">AI Logistics Planning</div>
               <div className="recommendation-list">

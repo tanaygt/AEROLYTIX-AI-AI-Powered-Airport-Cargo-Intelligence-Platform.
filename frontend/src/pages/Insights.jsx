@@ -26,7 +26,7 @@ const Insights = () => {
         <p>Deep Learning Global System Observations</p>
       </div>
 
-      <div className="dashboard-grid">
+      <div className="responsive-dashboard-grid">
         <div className="glass-panel chart-container full-width">
            <div className="panel-title" style={{display:'flex', alignItems:'center', gap:'8px'}}>
              <Brain color="var(--color-primary)" />

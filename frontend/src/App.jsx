@@ -71,9 +71,7 @@ function App() {
         <div className="app-container">
           <Sidebar mobileOpen={mobileMenuOpen} closeMenu={() => setMobileMenuOpen(false)} />
           <div className="main-content">
-            <div className="topbar">
-              <Topbar />
-            </div>
+              <Topbar toggleMenu={() => setMobileMenuOpen(!mobileMenuOpen)} />
             <div className="page-wrapper-scroll">
               <ErrorBoundary>
                 <Routes>

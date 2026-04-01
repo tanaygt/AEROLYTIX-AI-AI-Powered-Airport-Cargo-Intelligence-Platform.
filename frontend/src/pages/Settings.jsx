@@ -15,7 +15,7 @@ const Settings = () => {
         <p>AEROLYTIX AI Core Configuration</p>
       </div>
 
-      <div className="dashboard-grid">
+      <div className="responsive-dashboard-grid">
         <motion.div whileHover={{y:-5}} className="glass-panel chart-container">
           <div className="panel-title" style={{display:'flex', alignItems:'center', gap:'8px'}}>
              <Server color="var(--color-secondary)" />

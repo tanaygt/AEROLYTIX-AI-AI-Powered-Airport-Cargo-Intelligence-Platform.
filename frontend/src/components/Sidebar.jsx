@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useDemo } from '../context/DemoContext';
 
 const Sidebar = ({ mobileOpen, closeMenu }) => {
@@ -15,9 +15,16 @@ const Sidebar = ({ mobileOpen, closeMenu }) => {
             <span className="text-gradient">AEROLYTIX</span> AI
           </div>
         )}
-        <button className="collapse-btn" onClick={() => setIsCollapsed(!isCollapsed)}>
-          {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
-        </button>
+        <div style={{display: 'flex', gap: '8px'}}>
+          {mobileOpen && (
+             <button className="collapse-btn mobile-close" onClick={closeMenu}>
+                <X size={20} />
+             </button>
+          )}
+          <button className="collapse-btn desktop-only" onClick={() => setIsCollapsed(!isCollapsed)}>
+            {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+          </button>
+        </div>
       </div>
 
       <div className="sidebar-intelligence">
