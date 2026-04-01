@@ -8,16 +8,12 @@ import ai_models as ai
 app = FastAPI(title="AEROLYTIX AI Backend")
 
 @app.get("/")
-def read_root():
-    return {"status": "online", "message": "AEROLYTIX AI API is active. Use /dashboard-metrics for data."}
+def health():
+    return {"status": "AEROLYTIX backend running"}
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://aerolytix-ai.vercel.app",
-        "https://aerolytix-ai-ai-powered-airport-car.vercel.app"
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
