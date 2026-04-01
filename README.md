@@ -78,7 +78,7 @@ Transform airport cargo operations using **AI forecasting, actionable sustainabi
 
 | Command Center & Digital Twin | Sustainability Heatmap |
 | :---: | :---: |
-| <img src="https://via.placeholder.com/600x350/0B0F1A/00F3FF?text=Dashboard+Screenshot" alt="Dashboard" /> | <img src="https://via.placeholder.com/600x350/0B0F1A/00F3FF?text=Sustainability+Screenshot" alt="Sustainability" /> |
+| <img width="1920" height="1502" alt="screencapture-aerolytix-ai-vercel-app-dashboard-2026-04-01-18_17_00" src="https://github.com/user-attachments/assets/dc0729a4-619c-4a6a-9ee9-3d6c93155da2" />|
 
 | Demand Forecasting | Security Risk Analysis (PLACI) |
 | :---: | :---: |
