@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain } from 'lucide-react';
+import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain, X } from 'lucide-react';
 
 const Sidebar = ({ mobileOpen, closeMenu }) => {
   return (
