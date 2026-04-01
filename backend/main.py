@@ -15,6 +15,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        "https://aerolytix-ai.vercel.app",
         "https://aerolytix-ai-ai-powered-airport-car.vercel.app"
     ],
     allow_credentials=True,
