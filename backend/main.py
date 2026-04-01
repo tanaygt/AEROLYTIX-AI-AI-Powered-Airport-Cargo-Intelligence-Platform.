@@ -1,10 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import pandas as pd
+import numpy as np
 import data_generator as dg
 import ai_models as ai
-import numpy as np
 
 app = FastAPI(title="AEROLYTIX AI Backend")
+
+@app.get("/")
+def read_root():
+    return {"status": "online", "message": "AEROLYTIX AI API is active. Use /dashboard-metrics for data."}
 
 app.add_middleware(
     CORSMiddleware,
