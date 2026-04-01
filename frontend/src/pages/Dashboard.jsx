@@ -125,11 +125,11 @@ const Dashboard = () => {
         </motion.div>
       </div>
 
-      <div className="dashboard-grid">
-        <div style={{gridColumn: '1 / span 2'}}>
+      <div className="dashboard-main-grid">
+        <div className="scene-container-col">
            <Scene3D />
         </div>
-        <div style={{gridColumn: '3 / span 1'}}>
+        <div className="feed-container-col">
            <h3 style={{marginBottom: '16px', fontSize: '18px', color: 'var(--color-text)'}}>Live AI Feed</h3>
            <AIInsightsPanel />
         </div>

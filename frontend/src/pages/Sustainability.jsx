@@ -80,7 +80,7 @@ const Sustainability = () => {
             </motion.div>
           </div>
 
-          <div className="dashboard-grid">
+          <div className="responsive-dashboard-grid">
             <div className="glass-panel chart-container full-width">
               <div className="panel-title">Energy Consumption Trend (Last 48h)</div>
               <div style={{ height: '300px', width: '100%' }}>
@@ -102,7 +102,7 @@ const Sustainability = () => {
               </div>
             </div>
             
-            <div className="glass-panel chart-container" style={{gridColumn: '1 / span 1'}}>
+            <div className="glass-panel chart-container">
                <div className="panel-title">Terminal Zonal Heatmap</div>
                <div style={{height: '200px'}}>
                   <Heatmap anomalies={data.anomalies_detected} />
@@ -113,7 +113,7 @@ const Sustainability = () => {
                </div>
             </div>
 
-            <div className="glass-panel chart-container" style={{gridColumn: '2 / span 1'}}>
+            <div className="glass-panel chart-container">
               <div className="panel-title">AI Optimization Recommendations</div>
               <div className="recommendation-list">
                 {data.recommendations.map((rec, i) => (
