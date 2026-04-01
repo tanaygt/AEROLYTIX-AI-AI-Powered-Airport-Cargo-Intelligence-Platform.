@@ -5,8 +5,13 @@ import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain } from '
 const Sidebar = ({ mobileOpen, closeMenu }) => {
   return (
     <div className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
-      <div className="sidebar-logo">
-        <span className="text-gradient">AEROLYTIX</span> AI
+      <div className="sidebar-header">
+        <div className="sidebar-logo">
+          <span className="text-gradient">AEROLYTIX</span> AI
+        </div>
+        <button className="mobile-close-btn" onClick={closeMenu}>
+          <X size={24} />
+        </button>
       </div>
       <div className="sidebar-nav">
         <NavLink to="/dashboard" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
