@@ -221,7 +221,7 @@ const Scene3D = () => {
         <h3 style={{color: '#fff', textShadow: '0 0 10px rgba(0,243,255,0.5)'}}>Digital Twin Matrix</h3>
         <p style={{color: 'var(--color-primary)', fontSize: '12px', letterSpacing: '2px', textTransform:'uppercase'}}>Live Global Tracking</p>
       </div>
-      <Canvas shadows camera={{ position: [25, 20, 30], fov: 40 }}>
+      <Canvas shadows gl={{ shadowMap: { type: THREE.PCFShadowMap } }} camera={{ position: [25, 20, 30], fov: 40 }}>
         <Scene />
       </Canvas>
     </div>
