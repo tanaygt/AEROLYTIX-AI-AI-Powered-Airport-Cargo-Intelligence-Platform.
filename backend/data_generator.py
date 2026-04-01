@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import random
 
 def generate_energy_data(rows=400):
-    dates = pd.date_range(end=datetime.now(), periods=rows, freq='H')
+    dates = pd.date_range(end=datetime.now(), periods=rows, freq='h')
     base_energy = np.random.normal(500, 50, rows)
     # Add anomalies
     anomaly_indices = random.sample(range(rows), int(rows * 0.05))
@@ -19,7 +19,7 @@ def generate_energy_data(rows=400):
     })
 
 def generate_cargo_demand(rows=30):
-    dates = pd.date_range(end=datetime.now(), periods=rows, freq='D')
+    dates = pd.date_range(end=datetime.now(), periods=rows, freq='d')
     trend = np.linspace(100, 150, rows)
     seasonality = np.sin(np.arange(rows) * 0.2) * 20
     noise = np.random.normal(0, 10, rows)
@@ -52,7 +52,7 @@ def generate_cargo_declarations(rows=100):
     return pd.DataFrame(data)
 
 def generate_capacity_utilization(rows=100):
-    timestamps = pd.date_range(end=datetime.now(), periods=rows, freq='2H')
+    timestamps = pd.date_range(end=datetime.now(), periods=rows, freq='2h')
     return pd.DataFrame({
         'timestamp': timestamps,
         'warehouse_utilization_pct': np.clip(np.random.normal(70, 15, len(timestamps)), 0, 100),
