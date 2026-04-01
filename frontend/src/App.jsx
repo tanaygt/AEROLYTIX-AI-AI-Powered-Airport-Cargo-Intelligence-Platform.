@@ -89,9 +89,10 @@ function App() {
                   <Route path="/sustainability" element={<Sustainability />} />
                   <Route path="/demand" element={<Demand />} />
                   <Route path="/security" element={<Security />} />
-                  <Route path="/insights" element={<Insights />} />
-                  <Route path="*" element={<Navigate to="/dashboard" replace />} />
-                </Routes>
+                <Route path="/insights" element={<Insights />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="*" element={<Navigate to="/dashboard" replace />} />
+              </Routes>
               </ErrorBoundary>
             </div>
           </div>

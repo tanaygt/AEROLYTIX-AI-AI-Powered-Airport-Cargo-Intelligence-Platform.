@@ -24,6 +24,7 @@ const Topbar = () => {
           </div>
         )}
       </div>
+      <div className="system-status-vertical">
         <div className="status-indicator-pill">
           <div className="status-dot-green"></div>
           AI Energy Monitor
@@ -36,6 +37,7 @@ const Topbar = () => {
           <div className="status-dot-green"></div>
           Risk Analyst
         </div>
+      </div>
     </div>
   );
 };
