@@ -8,9 +8,13 @@ app = FastAPI(title="AEROLYTIX AI Backend")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://aerolytix-ai-ai-powered-airport-car.vercel.app"
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
 @app.get("/energy-analysis")
