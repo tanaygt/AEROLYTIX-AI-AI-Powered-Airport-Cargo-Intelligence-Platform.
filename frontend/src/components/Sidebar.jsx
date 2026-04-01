@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, Zap, TrendingUp, ShieldAlert, Settings, Brain, X } from 'lucide-react';
 
 const Sidebar = ({ mobileOpen, closeMenu }) => {
+  const { demoMode, setDemoMode } = useDemo();
+
   return (
     <div className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-header">
@@ -13,6 +15,35 @@ const Sidebar = ({ mobileOpen, closeMenu }) => {
           <X size={24} />
         </button>
       </div>
+
+      <div className="sidebar-intelligence">
+        <div className="intelligence-group">
+          <div className="status-indicator-pill">
+            <div className="status-dot-green"></div>
+            AI Energy Monitor
+          </div>
+          <div className="status-indicator-pill">
+            <div className="status-dot-green"></div>
+            Forecast Engine
+          </div>
+          <div className="status-indicator-pill">
+            <div className="status-dot-green"></div>
+            Risk Analyst
+          </div>
+        </div>
+        
+        <div 
+          className="demo-mode-toggle-sidebar"
+          onClick={() => setDemoMode(!demoMode)}
+        >
+          <div className="status-dot-blue" style={{
+             animation: demoMode ? 'pulseFast 1s infinite' : 'none'
+          }}></div>
+          <span>JUDGE DEMO MODE</span>
+          <div className={`toggle-switch ${demoMode ? 'active' : ''}`}></div>
+        </div>
+      </div>
+
       <div className="sidebar-nav">
         <NavLink to="/dashboard" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
           <LayoutDashboard size={20} />
@@ -31,7 +62,7 @@ const Sidebar = ({ mobileOpen, closeMenu }) => {
           Cargo Security (PLACI)
         </NavLink>
         
-        <div style={{marginTop: 'auto'}}>
+        <div style={{marginTop: 'auto', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.05)'}}>
           <NavLink to="/insights" onClick={closeMenu} className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
             <Brain size={20} />
             AI Insights
