@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../config';
 import Scene3D from '../components/Scene3D';
 import AIInsightsPanel from '../components/AIInsightsPanel';
 import { motion } from 'framer-motion';
@@ -49,7 +50,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/dashboard-metrics');
+        const res = await axios.get(`${API_BASE_URL}/dashboard-metrics`);
         setMetrics(res.data);
       } catch (err) {
         console.error("Backend not running, using fallback data");

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../config';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, Zap, TrendingUp, CheckCircle, ShieldAlert } from 'lucide-react';
 import { useDemo } from '../context/DemoContext';
@@ -12,9 +13,9 @@ const AIInsightsPanel = () => {
     const fetchInsights = async () => {
       try {
         const [energy, forecast, security] = await Promise.all([
-          axios.get('http://localhost:8000/energy-analysis'),
-          axios.get('http://localhost:8000/cargo-forecast'),
-          axios.get('http://localhost:8000/security-risk-analysis')
+          axios.get(`${API_BASE_URL}/energy-analysis`),
+          axios.get(`${API_BASE_URL}/cargo-forecast`),
+          axios.get(`${API_BASE_URL}/security-risk-analysis`)
         ]);
         
         let newInsights = [];

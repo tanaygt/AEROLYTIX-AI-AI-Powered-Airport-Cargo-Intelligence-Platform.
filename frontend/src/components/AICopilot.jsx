@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { API_BASE_URL } from '../config';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Bot, Send, User } from 'lucide-react';
 import { useDemo } from '../context/DemoContext';
@@ -55,13 +56,13 @@ const AICopilot = () => {
       const q = query.toLowerCase();
 
       if (q.includes("energy")) {
-        const res = await axios.get('http://localhost:8000/energy-analysis');
+        const res = await axios.get(`${API_BASE_URL}/energy-analysis`);
         responseText = `AI Insight:\nEnergy anomaly detected: ${res.data.anomalies_detected} anomalies.\nCurrent draw is ${Math.round(res.data.current_energy_kwh)} kWh.\n\nRecommendation:\n${res.data.recommendations[0]}`;
       } else if (q.includes("congestion") || q.includes("demand") || q.includes("forecast")) {
-        const res = await axios.get('http://localhost:8000/cargo-forecast');
+        const res = await axios.get(`${API_BASE_URL}/cargo-forecast`);
         responseText = `Forecast Insight:\nCapacity risk is currently ${res.data.capacity_risk} at ${res.data.current_capacity_pct.toFixed(1)}%.\n\nRecommendation:\n${res.data.planning_recommendations[0]}`;
       } else if (q.includes("security") || q.includes("risk")) {
-        const res = await axios.get('http://localhost:8000/security-risk-analysis');
+        const res = await axios.get(`${API_BASE_URL}/security-risk-analysis`);
         responseText = `Security Alert:\nDetected ${res.data.high_risk_alerts} high risk declarations today out of ${res.data.total_scanned_today} scanned.\n\nRecommendation:\nInspect flagged items immediately.`;
       } else {
         responseText = `AI Insight:\nSystem operating within normal parameters.\n\nRecommendation:\nContinue monitoring terminal throughput.`;

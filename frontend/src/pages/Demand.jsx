@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../config';
 import { motion } from 'framer-motion';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
@@ -37,7 +38,7 @@ const Demand = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/cargo-forecast');
+        const res = await axios.get(`${API_BASE_URL}/cargo-forecast`);
         
         // merge historical and forecast for charting
         const chartData = res.data.historical_demand.map(h => ({ name: h.date?.split(' ')[0] || h.date, volume: h.cargo_volume_tons, isForecast: false }));

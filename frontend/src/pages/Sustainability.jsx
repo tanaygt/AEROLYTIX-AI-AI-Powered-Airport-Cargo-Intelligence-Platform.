@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../config';
 import { motion } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
@@ -41,7 +42,7 @@ const Sustainability = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/energy-analysis');
+        const res = await axios.get(`${API_BASE_URL}/energy-analysis`);
         setData(res.data);
       } catch (err) {
         console.error("Backend error");

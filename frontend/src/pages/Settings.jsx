@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../config';
 import { motion } from 'framer-motion';
 import { Settings as SettingsIcon, Server, Sliders, Database, Wifi } from 'lucide-react';
 import { useDemo } from '../context/DemoContext';
@@ -23,7 +24,7 @@ const Settings = () => {
           <div style={{marginTop:'24px', display:'flex', flexDirection:'column', gap:'16px'}}>
              <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
                 <span style={{color:'var(--color-text-muted)'}}>API Endpoint</span>
-                <span style={{padding:'6px 12px', background:'rgba(255,255,255,0.05)', borderRadius:'6px', fontFamily:'monospace'}}>http://localhost:8000</span>
+                <span style={{padding:'6px 12px', background:'rgba(255,255,255,0.05)', borderRadius:'6px', fontFamily:'monospace'}}>{API_BASE_URL}</span>
              </div>
              <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
                 <span style={{color:'var(--color-text-muted)'}}>Database Status</span>

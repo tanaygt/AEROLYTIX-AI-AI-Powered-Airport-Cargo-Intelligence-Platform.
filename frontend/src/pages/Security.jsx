@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../config';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import { useDemo } from '../context/DemoContext';
@@ -28,7 +29,7 @@ const Security = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/security-risk-analysis');
+        const res = await axios.get(`${API_BASE_URL}/security-risk-analysis`);
         setData(res.data);
       } catch (err) {
         console.error("Backend error");
